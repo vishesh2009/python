@@ -1,12 +1,14 @@
 from tkinter import *
 import math
 from math import sin, cos, tan, sqrt
-root = Tk() #
-root.geometry("700x840")
+root = Tk() 
+# root.geometry("700x840")
+root.geometry("400x470")
 
 root.title("The best calculator") 
 root.config(bg="Dark Blue")
 root.resizable(height=False,width=False)
+
 ###################Starting with functions ####################
 # 'btn_click' function :
 # This Function continuously updates the
@@ -101,7 +103,6 @@ def bt_equal():
       
     except:
         input_text.set("OH! COULD NOT EVALUATE THE EXPRESSION")
-        #input_text.set("OH! YOU DUMBO CAN U PUT A PREETY FUNCTION")
         expression=""
 expression = ""
 #----------------------------------------------------------------------------------------------- 
@@ -115,13 +116,13 @@ current = ""
 defxworking = False
 # Let us creating a frame for the input field
  
-input_frame = Frame(root, width=312, height=50, bd=0, highlightbackground="black", highlightcolor="black", highlightthickness=2)
+input_frame = Frame(root, width=312, height=50, bd=0, highlightbackground="Light Blue", highlightcolor="Light Blue", highlightthickness=2)
 
 input_frame.pack(side=TOP)
  
 #Let us create a input field inside the 'Frame'
  
-input_field = Entry(input_frame, font=('arial', 18, 'bold'), textvariable=input_text, width=50, bg="red", bd=0, justify=RIGHT, state = "disabled", disabledforeground = "Lime", disabledbackground="Black")
+input_field = Entry(input_frame, font=('arial', 18, 'bold'), textvariable=input_text, width=50, bg="red", bd=0, justify=RIGHT, state = "disabled", disabledforeground = "Blue", disabledbackground="Aqua")
  
 input_field.grid(row=0, column=0)
  
@@ -131,7 +132,7 @@ input_field.pack(ipady=10) # 'ipady' is internal padding to increase the height 
 
 btns_frame = Frame(root, width=312, height=272.5,bg="Blue")
  
-btns_frame.pack()
+btns_frame.pack(pady=15)
  
 # first row
 #Clear Button 
@@ -151,7 +152,7 @@ multiply = Button(btns_frame, text = "*", fg = "black", width = 10, height = 3, 
  
 # third row
 #Four 
-four = Button(btns_frame, text = "4", fg = "black", width = 13, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click(4 ),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 2, column = 0, padx = 1, pady = 1)
+four = Button(btns_frame, text = "4", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click(4 ),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 2, column = 0, padx = 1, pady = 1,sticky=W+E)
 #Five 
 five = Button(btns_frame, text = "5", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click(5 ),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 2, column = 1, padx = 1, pady = 1,sticky=W+E)
 #Six 
@@ -172,22 +173,22 @@ three = Button(btns_frame, text = "3", fg = "black", width = 10, height = 3, bd 
 plus = Button(btns_frame, text = "+", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click("+"),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 3, column = 3, padx = 1, pady = 1,sticky=W+E)
  
 # fourth row
-delete = Button(btns_frame, text = "⌦", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command =delete,font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 7, column = 1, padx = 1, columnspan = 1 ,pady = 1,sticky=W+E)
+delete = Button(btns_frame, text = "⌦", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command =delete,font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 7, column = 1, padx = 1, columnspan = 1 ,pady = 1,sticky=W+E+N+S)
 
-sqrt = Button(btns_frame, text = "√x", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command =squareroot,font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 7, column = 0, padx = 1, columnspan = 1 ,pady = 1,sticky=W+E)
+sqrt = Button(btns_frame, text = "√x", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command =squareroot,font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 7, column = 0, padx = 1, columnspan = 1 ,pady = 1,sticky=W+E+N+S)
 
-zero = Button(btns_frame, text = "0", fg = "black", width = 26 , height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click(0 ),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 4, column = 0,columnspan = 2, padx = 1, pady = 1,sticky=W+E)
+zero = Button(btns_frame, text = "0", fg = "black", width = 26 , height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click(0 ),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 4, column = 0,columnspan = 2, padx = 1, pady = 1,sticky=W+E+N+S)
  
-point = Button(btns_frame, text = ".", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click("."),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 4, column = 2, padx = 3, pady = 1,sticky=E+W)
+point = Button(btns_frame, text = ".", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click("."),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 4, column = 2, padx = 2, pady = 1,sticky=W+E+N+S)
  
-equals = Button(btns_frame, text = "=", fg = "black", width = 9, height = 3, bg = "red", cursor ="hand2", command = lambda: bt_equal(),font=('Helvetica', 8, 'bold'), activebackground="White").grid(row = 4, column = 3, padx = 1, pady = 1,sticky=W+E)
+equals = Button(btns_frame, text = "=", fg = "black", width = 9, height = 3, bg = "red", cursor ="hand2", command = lambda: bt_equal(),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 4, column = 3, padx = 2, pady = 1,sticky=W+E+N+S)
 
-doublezero = Button(btns_frame, text = "00", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click("00"),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 5, column = 0, columnspan = 1, padx = 1, pady = 1,sticky=W+E) 
+doublezero = Button(btns_frame, text = "00", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click("00"),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 5, column = 0, columnspan = 1, padx = 1, pady = 1,sticky=W+E+N+S) 
 
-oneby = Button(btns_frame, text ="1/x", fg = "black", width = 10, height = 3, bd = 0, bg="red", cursor= "hand2", command = lambda: btn_click("1/"),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 5, column=2, padx =1, pady=1,columnspan = 1,sticky=W+E) 
+oneby = Button(btns_frame, text ="1/x", fg = "black", width = 10, height = 3, bd = 0, bg="red", cursor= "hand2", command = lambda: btn_click("1/"),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 5, column=2, padx =1, pady=1,columnspan = 1,sticky=W+E+N+S) 
 
 
-quit = Button(btns_frame, text= "Quit", fg="black", width = 10, height = 3, bd = 0, bg="red" , cursor="hand2", command=btns_frame.quit,font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row=5, column=3, padx=1, pady=1,sticky=W+E)
+quit = Button(btns_frame, text= "Quit", fg="black", width = 10, height = 3, bd = 0, bg="red" , cursor="hand2", command=btns_frame.quit,font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row=5, column=3, padx=1, pady=1,sticky=W+E+N+S)
 
  
 percentage = Button(btns_frame, text = "%", fg = "black", width = 9, height = 3, bd = 0, bg="red", cursor= "hand2", command = lambda: btn_click("/100 *"),font=('Helvetica', 8, 'bold'), activebackground="White").grid(row = 5, column=1, padx =1, pady=1, columnspan = 1,sticky=W+E)
@@ -197,7 +198,7 @@ percentage = Button(btns_frame, text = "%", fg = "black", width = 9, height = 3,
 bracket_open = Button(btns_frame, text = "(", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click("("),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 7, column =2, columnspan = 1, padx = 1, pady = 1,sticky=W+E)
 
 
-bracket_close = Button(btns_frame, text =")", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click(")"),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 7, column = 3, columnspan = 1, padx = 1, pady = 1,sticky=W+E)
+bracket_close = Button(btns_frame, text =")", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2", command = lambda: btn_click(")"),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 7, column = 3, columnspan = 1, padx = 1, pady = 1,sticky=W+E+N+S)
 
 xsquare = Button(btns_frame, text = "x²", fg = "black", width = 10, height = 3, bd = 0, bg = "red", cursor = "hand2",command=lambda: btn_click("²"),font=('Helvetica', 8, 'bold','italic'), activebackground="White").grid(row = 6, column = 1, columnspan = 1, padx = 1, pady = 1,sticky=W+E)
 
