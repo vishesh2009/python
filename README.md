@@ -1,4 +1,1 @@
-Love Python. 
-Love coding. 
-Love Vishesh
-Love youself
+Just code people
